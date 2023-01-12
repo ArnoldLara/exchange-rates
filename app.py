@@ -19,9 +19,11 @@ def ExchangeRate(rate_to,rate_from,amount):
     print(jsonResponse)
     return jsonResponse["result"]
 
+
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
+
 def home():
     if request.method == "POST":
         amount = str(request.form["amount"])
@@ -35,7 +37,9 @@ def home():
         return render_template("home.html",value=value)
 
     return render_template("home.html")
+    # return "Hello world"
+
     #return value
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
